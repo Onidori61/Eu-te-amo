@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pedido de casamento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-image: url(https://static.vecteezy.com/system/resources/previews/000/695/397/large_2x/seamless-pattern-of-love-envelopes-on-pink-pastel-polka-dots-vector.jpg);
+      background-size: cover;
+      background-position: center;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+    }
+    .message-box {
+      background-color: rgba(237, 140, 157, 0.8); /* Cor com transparência */
+      margin: 0 auto;
+      max-width: 80%;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      min-width: 300px; /* Definindo largura mínima */
+    }
+    h1 {
+      color: #333;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      font-size: 20px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+    .no-button {
+      background-color: #f44336;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+  <script>
+    function displayMessage(response) {
+      if (response === "sim") {
+        var numero = "+55 14 99756-6581"; // Seu número de telefone
+        var mensagem = encodeURIComponent(""); // Mensagem pré-preenchida
+
+        // Abre o link do WhatsApp com o número e mensagem pré-preenchida
+        window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+      }
+    }
+    function moveButton() {
+      var noButton = document.getElementById("noButton");
+      var maxX = window.innerWidth - noButton.clientWidth;
+      var maxY = window.innerHeight - noButton.clientHeight;
+      var newX = Math.floor(Math.random() * maxX);
+      var newY = Math.floor(Math.random() * maxY);
+
+      var simButton = document.getElementById("simButton");
+      var simButtonRect = simButton.getBoundingClientRect();
+      var noButtonRect = noButton.getBoundingClientRect();
+      var minDistance = 100;
+
+      var distanceX = Math.abs(simButtonRect.left - noButtonRect.left);
+      var distanceY = Math.abs(simButtonRect.top - noButtonRect.top);
+
+      if (distanceX < minDistance && distanceY < minDistance) {
+        if (newX < maxX / 2) {
+          newX += minDistance;
+        } else {
+          newX -= minDistance;
+        }
+        if (newY < maxY / 2) {
+          newY += minDistance;
+        } else {
+          newY -= minDistance;
+        }
+      }
+
+      noButton.style.transform = "translate(" + newX + "px, " + newY + "px)";
+    }
+
+    setInterval(moveButton, 140);
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="message-box">
+      <h1>Quer casar comigo?</h1>
+      <div class="buttons">
+        <button class="button" onclick="displayMessage('sim')" id="simButton">Sim</button>
+        <button class="button no-button" id="noButton">Não</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
