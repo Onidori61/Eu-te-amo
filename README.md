@@ -2,6 +2,6 @@
 
 ## Propósito
 
-Esse projeto já é meio genérico, quem nunca fez um desses? Bom, é só um texte, nada demais, um pedido "irrecusável" 
+Esse projeto já é meio genérico, quem nunca fez um desses? Bom, é só um teste, nada demais, um pedido "irrecusável" 
 
 
