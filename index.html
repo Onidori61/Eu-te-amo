@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pedido de Namoro</title>
+  <title>Pedido de casamento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background-image: url(https://img.freepik.com/vetores-premium/cartas-de-amor-vetor-padrao-sem-costura-fundo-romantico-desenhado-a-mao-com-envelopes-correio-de-dia-dos-namorados_217204-1106.jpg?w=2000);
+      background-image: url(https://static.vecteezy.com/system/resources/previews/000/695/397/large_2x/seamless-pattern-of-love-envelopes-on-pink-pastel-polka-dots-vector.jpg);
       background-size: cover;
       background-position: center;
       justify-content: center;
@@ -17,12 +18,13 @@
       text-align: center;
     }
     .message-box {
-      background-color: rgba(255, 255, 255, 0.5); /* Valor alfa (0.5) torna o fundo semi-transparente */
+      background-color: rgba(237, 140, 157, 0.8); /* Cor com transparência */
       margin: 0 auto;
-      max-width: 600px;
+      max-width: 80%;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      min-width: 300px; /* Definindo largura mínima */
     }
     h1 {
       color: #333;
@@ -58,7 +60,11 @@
   <script>
     function displayMessage(response) {
       if (response === "sim") {
-        alert("Que bom, foi por livre e espontânea vontade!");
+        var numero = "+55 14 99756-6581"; // Seu número de telefone
+        var mensagem = encodeURIComponent(""); // Mensagem pré-preenchida
+
+        // Abre o link do WhatsApp com o número e mensagem pré-preenchida
+        window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
       }
     }
     function moveButton() {
